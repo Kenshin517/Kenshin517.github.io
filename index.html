@@ -107,6 +107,7 @@
   .card-links{ display:flex; gap: 18px; font-family: var(--mono); font-size: 13px; }
   .placeholder{ color: var(--amber); }
   .placeholder::before{ content: "⚠ "; }
+  .wip{ color: var(--ink-dim); font-style: italic; }
 
   /* ---------- timeline ---------- */
   .tl-item{ display:flex; gap: 20px; margin-bottom: 24px; }
@@ -150,11 +151,10 @@
 
 <div class="wrap">
   <div class="howto">
-    <b>HOW TO USE THIS TEMPLATE:</b> Everything below is already drafted from your resume — just replace the
-    <span class="placeholder">amber-flagged</span> links (repo / demo URLs) with real ones. Delete this box before
-    publishing. To deploy: create a repo named <b>Kenshin517.github.io</b> on GitHub, push this file as
-    <b>index.html</b>, enable Pages in repo settings — your portfolio URL will be
-    <b>https://kenshin517.github.io</b>.
+    <b>HOW TO USE THIS TEMPLATE:</b> Robot Sumo and ESP32 IoT Relay Control link to your real repos already.
+    The trading platform and Auto Absen are marked as in-development (no public repo yet) — swap that note for
+    a real link once you push them. CV/DL and SDN entries are marked as coursework write-ups in progress — come
+    back and link a repo once you organize one. Delete this box before publishing.
   </div>
 </div>
 
@@ -190,8 +190,7 @@
       gated behind a Telegram approval step. Redis + Celery handle async job queues and real-time data flow
       between frontend, cache, and database.</p>
       <div class="card-links">
-        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
-        <span class="placeholder">[live demo URL]</span>
+        <span class="wip">🔧 In active development — repo private for now, happy to walk through the code on request</span>
       </div>
     </div>
 
@@ -202,8 +201,7 @@
       dynamically rendered UI states and trigger actions on schedule via node-cron, with a React + Vite
       dashboard for monitoring automation status and history.</p>
       <div class="card-links">
-        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
-        <span class="placeholder">[live demo URL]</span>
+        <span class="wip">🔧 In active development — repo private for now, happy to walk through the code on request</span>
       </div>
     </div>
 
@@ -214,7 +212,7 @@
       transforms. CNN image classifiers built from scratch and via VGG16 transfer learning, including
       diagnosis of domain-shift issues between training and real-world data.</p>
       <div class="card-links">
-        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+        <span class="wip">📓 Coursework exercises — repo write-up in progress</span>
       </div>
     </div>
 
@@ -225,22 +223,32 @@
       OpenFlow Packet-In/Flow-Mod behavior. Python automation scripts implement self-healing network
       behavior on link/container failure.</p>
       <div class="card-links">
-        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+        <span class="wip">📓 Coursework exercises — repo write-up in progress</span>
       </div>
     </div>
 
     <div class="card" data-ref="U5">
-      <h3>Autonomous Robotics &amp; Embedded Systems</h3>
+      <h3>Robot Sumo — 1KG &amp; 3KG Competitive Robots</h3>
       <div class="stack">C/C++ · Arduino/ESP32 · PCB Design</div>
-      <p>Motor and H-bridge driver hardware selection for a competitive 1kg sumo robot, referencing IC-level
-      datasheets for a custom PCB redesign. PS3-controller-to-ESP32 integration for manual control, and
-      BLE reverse-engineering of a Bluetooth sensor device.</p>
+      <p>Two competitive-class sumo robots. Motor and H-bridge driver hardware selection for the 1KG class,
+      referencing IC-level datasheets for a custom PCB redesign, plus PS3-controller-to-ESP32 integration
+      for manual control.</p>
       <div class="card-links">
-        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+        <a href="https://github.com/Kenshin517/Sumo-robot-1KG" target="_blank">github.com/Kenshin517/Sumo-robot-1KG</a>
+        <a href="https://github.com/Kenshin517/Sumo-robot-3KG" target="_blank">github.com/Kenshin517/Sumo-robot-3KG</a>
       </div>
     </div>
 
-    <!-- Add more <div class="card" data-ref="U6"> blocks here for future projects -->
+    <div class="card" data-ref="U6">
+      <h3>ESP32 IoT Relay Control</h3>
+      <div class="stack">C/C++ · ESP32 · IoT</div>
+      <p>ESP32-based relay control system for remotely switching connected devices over a network connection.</p>
+      <div class="card-links">
+        <a href="https://github.com/Kenshin517/Esp-Iot-Control" target="_blank">github.com/Kenshin517/Esp-Iot-Control</a>
+      </div>
+    </div>
+
+    <!-- Add more <div class="card" data-ref="U7"> blocks here for future projects -->
   </div>
 </section>
 
