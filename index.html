@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sandy Aprilando — Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #101B33;
+    --bg-grid: rgba(151, 189, 230, 0.08);
+    --panel: #16223F;
+    --panel-line: #2A3B63;
+    --ink: #E8EEF7;
+    --ink-dim: #8FA1C4;
+    --amber: #F2A93B;
+    --cyan: #63C9D9;
+    --ok: #6FCF97;
+    --mono: 'JetBrains Mono', monospace;
+    --display: 'Space Grotesk', sans-serif;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--bg-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
+    font-family: var(--display);
+    line-height: 1.5;
+  }
+  a { color: var(--cyan); }
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- nav ---------- */
+  nav{
+    position: sticky; top:0; z-index: 10;
+    background: rgba(16,27,51,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding: 16px 28px; }
+  .logo{ font-family: var(--mono); font-weight:700; color: var(--amber); letter-spacing:0.5px; font-size:14px; }
+  .navlinks{ display:flex; gap: 24px; font-family: var(--mono); font-size: 13px; }
+  .navlinks a{ color: var(--ink-dim); text-decoration:none; }
+  .navlinks a:hover{ color: var(--amber); }
+
+  /* ---------- hero ---------- */
+  header.hero{ padding: 90px 0 60px; }
+  .designator{
+    font-family: var(--mono); color: var(--amber); font-size: 13px;
+    border: 1px solid var(--amber); display:inline-block;
+    padding: 3px 10px; border-radius: 3px; letter-spacing: 1px;
+    margin-bottom: 22px;
+  }
+  h1{ font-size: 48px; font-weight: 700; line-height:1.1; letter-spacing:-0.5px; }
+  h1 span{ color: var(--amber); }
+  .role{ font-family: var(--mono); color: var(--cyan); font-size: 16px; margin-top: 10px; }
+  .lede{ color: var(--ink-dim); max-width: 560px; margin-top: 22px; font-size: 16px; }
+  .hero-links{ margin-top: 30px; display:flex; gap: 16px; flex-wrap: wrap; }
+  .btn{
+    font-family: var(--mono); font-size: 13px; text-decoration:none;
+    padding: 10px 18px; border-radius: 4px; border: 1px solid var(--panel-line);
+    color: var(--ink); transition: border-color .15s, color .15s;
+  }
+  .btn.primary{ background: var(--amber); color: #101B33; border-color: var(--amber); font-weight:700; }
+  .btn:hover{ border-color: var(--amber); color: var(--amber); }
+  .btn.primary:hover{ color:#101B33; }
+
+  /* ---------- section shell ---------- */
+  section{ padding: 50px 0; border-top: 1px dashed var(--panel-line); }
+  .sec-head{ display:flex; align-items:baseline; gap: 14px; margin-bottom: 30px; }
+  .sec-num{ font-family: var(--mono); color: var(--amber); font-size: 13px; }
+  .sec-title{ font-size: 24px; font-weight: 700; }
+  .sec-sub{ color: var(--ink-dim); font-size: 14px; margin-top: -18px; margin-bottom: 26px; font-family: var(--mono); }
+
+  /* ---------- BOM / skills table ---------- */
+  .bom{ width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13.5px; }
+  .bom th{
+    text-align:left; color: var(--ink-dim); font-weight:500; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 1px; padding-bottom: 10px; border-bottom: 1px solid var(--panel-line);
+  }
+  .bom td{ padding: 10px 0; border-bottom: 1px solid var(--panel-line); vertical-align: top; }
+  .bom tr:last-child td{ border-bottom: none; }
+  .bom .ref{ color: var(--amber); width: 60px; }
+  .bom .qty{ color: var(--ok); }
+
+  /* ---------- projects ---------- */
+  .card{
+    background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px;
+    padding: 26px 28px; margin-bottom: 22px; position: relative;
+  }
+  .card::before{
+    content: attr(data-ref);
+    position: absolute; top: -11px; left: 22px;
+    background: var(--bg); padding: 0 8px;
+    font-family: var(--mono); color: var(--amber); font-size: 12px; font-weight:700;
+  }
+  .card h3{ font-size: 19px; font-weight:700; margin-bottom: 6px; }
+  .stack{ font-family: var(--mono); font-size: 12px; color: var(--cyan); margin-bottom: 14px; }
+  .card p{ color: var(--ink-dim); font-size: 14.5px; margin-bottom: 16px; }
+  .card ul{ color: var(--ink-dim); font-size: 14px; padding-left: 18px; margin-bottom: 16px; }
+  .card ul li{ margin-bottom: 6px; }
+  .card-links{ display:flex; gap: 18px; font-family: var(--mono); font-size: 13px; }
+  .placeholder{ color: var(--amber); }
+  .placeholder::before{ content: "⚠ "; }
+
+  /* ---------- timeline ---------- */
+  .tl-item{ display:flex; gap: 20px; margin-bottom: 24px; }
+  .tl-dot{ flex: 0 0 auto; width: 10px; height:10px; border-radius:50%; background: var(--amber); margin-top: 7px; }
+  .tl-body .when{ font-family: var(--mono); color: var(--ink-dim); font-size: 12px; }
+  .tl-body h4{ font-size: 16px; margin-top: 2px; }
+  .tl-body p{ color: var(--ink-dim); font-size: 14px; margin-top: 4px; }
+
+  /* ---------- footer ---------- */
+  footer{ padding: 50px 0 70px; text-align:center; }
+  footer .designator{ margin-bottom: 18px; }
+  footer p{ color: var(--ink-dim); font-family: var(--mono); font-size: 13px; }
+  footer a{ color: var(--amber); }
+
+  /* ---------- how-to note (remove before publishing) ---------- */
+  .howto{
+    background: #1A2645; border: 1px dashed var(--amber); border-radius: 8px;
+    padding: 18px 22px; margin: 40px 0; font-family: var(--mono); font-size: 13px; color: var(--ink-dim);
+  }
+  .howto b{ color: var(--amber); }
+
+  @media (max-width: 640px){
+    h1{ font-size: 34px; }
+    .navlinks{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">SANDY_APRILANDO.SCH</div>
+    <div class="navlinks">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="howto">
+    <b>HOW TO USE THIS TEMPLATE:</b> Everything below is already drafted from your resume — just replace the
+    <span class="placeholder">amber-flagged</span> links (repo / demo URLs) with real ones. Delete this box before
+    publishing. To deploy: create a repo named <b>Kenshin517.github.io</b> on GitHub, push this file as
+    <b>index.html</b>, enable Pages in repo settings — your portfolio URL will be
+    <b>https://kenshin517.github.io</b>.
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="designator">SANDY-01 · REV A</div>
+    <h1>Sandy <span>Aprilando</span></h1>
+    <div class="role">Full-Stack Engineer · Embedded Systems · AI/ML</div>
+    <p class="lede">
+      Computer Engineering student building production-style applications end to end —
+      from AI-driven trading platforms to embedded robotics. Comfortable across the stack
+      with Next.js, FastAPI, Redis, and SQL, with a foundation in algorithms, computer vision,
+      and network systems.
+    </p>
+    <div class="hero-links">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn" href="https://github.com/Kenshin517" target="_blank">GitHub ↗</a>
+      <a class="btn" href="mailto:sandyaprilando59@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Projects</span></div>
+    <div class="sec-sub">// selected builds — most relevant first</div>
+
+    <div class="card" data-ref="U1">
+      <h3>AI-Augmented Stock Auto-Trading Platform</h3>
+      <div class="stack">Next.js 14 · FastAPI · Redis · Celery · PostgreSQL · FinRL (PPO) · VectorBT · Alpaca API</div>
+      <p>Full-stack automated trading system with a Bloomberg-style terminal dashboard. Reinforcement-learning
+      strategy (FinRL/PPO) backtested with VectorBT, executed via the Alpaca Markets API, with every trade
+      gated behind a Telegram approval step. Redis + Celery handle async job queues and real-time data flow
+      between frontend, cache, and database.</p>
+      <div class="card-links">
+        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+        <span class="placeholder">[live demo URL]</span>
+      </div>
+    </div>
+
+    <div class="card" data-ref="U2">
+      <h3>Auto Absen — Attendance Automation System</h3>
+      <div class="stack">Node.js · TypeScript · Playwright · React + Vite · node-cron · PostgreSQL (InsForge)</div>
+      <p>End-to-end attendance automation for a university e-learning platform. Uses Playwright to detect
+      dynamically rendered UI states and trigger actions on schedule via node-cron, with a React + Vite
+      dashboard for monitoring automation status and history.</p>
+      <div class="card-links">
+        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+        <span class="placeholder">[live demo URL]</span>
+      </div>
+    </div>
+
+    <div class="card" data-ref="U3">
+      <h3>Computer Vision &amp; Deep Learning Practicums</h3>
+      <div class="stack">Python · OpenCV · TensorFlow/Keras · Google Colab</div>
+      <p>Image processing pipelines covering filtering, morphology, Sobel edge detection, and 2D DFT/wavelet
+      transforms. CNN image classifiers built from scratch and via VGG16 transfer learning, including
+      diagnosis of domain-shift issues between training and real-world data.</p>
+      <div class="card-links">
+        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+      </div>
+    </div>
+
+    <div class="card" data-ref="U4">
+      <h3>SDN Network Automation Lab</h3>
+      <div class="stack">GNS3 · ONOS Controller · Open vSwitch · Python (Paramiko)</div>
+      <p>Software-defined network topology with ONOS as controller and Open vSwitch as data plane, analyzing
+      OpenFlow Packet-In/Flow-Mod behavior. Python automation scripts implement self-healing network
+      behavior on link/container failure.</p>
+      <div class="card-links">
+        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+      </div>
+    </div>
+
+    <div class="card" data-ref="U5">
+      <h3>Autonomous Robotics &amp; Embedded Systems</h3>
+      <div class="stack">C/C++ · Arduino/ESP32 · PCB Design</div>
+      <p>Motor and H-bridge driver hardware selection for a competitive 1kg sumo robot, referencing IC-level
+      datasheets for a custom PCB redesign. PS3-controller-to-ESP32 integration for manual control, and
+      BLE reverse-engineering of a Bluetooth sensor device.</p>
+      <div class="card-links">
+        <span class="placeholder">github.com/Kenshin517/[repo-name]</span>
+      </div>
+    </div>
+
+    <!-- Add more <div class="card" data-ref="U6"> blocks here for future projects -->
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Bill of Materials</span></div>
+    <div class="sec-sub">// core stack</div>
+    <table class="bom">
+      <tr><th>Ref</th><th>Category</th><th>Components</th></tr>
+      <tr><td class="ref">R1</td><td>Languages</td><td>Python, JavaScript/TypeScript, C/C++, SQL</td></tr>
+      <tr><td class="ref">R2</td><td>Frontend</td><td>Next.js, React, Vite, Tailwind CSS</td></tr>
+      <tr><td class="ref">R3</td><td>Backend &amp; Data</td><td>Node.js, FastAPI, Redis, Celery, PostgreSQL, REST API design</td></tr>
+      <tr><td class="ref">R4</td><td>AI / ML</td><td>OpenCV, CNNs (Keras/TensorFlow), FinRL/PPO, signal &amp; image processing</td></tr>
+      <tr><td class="ref">R5</td><td>Systems</td><td>Git, Docker, Linux, SDN/ONOS, Arduino/ESP32, IoT/BLE</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Experience</span></div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="when">2026 — Present</div>
+        <h4>Member, Defense Technology Division — DTRC, PENS</h4>
+        <p>Embedded systems work restoring legacy defense research robots to working condition.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="when">Present</div>
+        <h4>Robotics Instructor — Roboholic</h4>
+        <p>Teach line-follower, sumo, and robot-soccer curricula; design and debug hardware/software integrations.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="when">Expected 2027</div>
+        <h4>D4 Teknik Komputer — Politeknik Elektronika Negeri Surabaya (PENS)</h4>
+        <p>Coursework in signal &amp; image processing, intelligent systems, computer networking, SDN.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="designator">EOF</div>
+    <p>sandyaprilando59@gmail.com &nbsp;·&nbsp; <a href="https://github.com/Kenshin517">github.com/Kenshin517</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
